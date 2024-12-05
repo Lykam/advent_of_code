@@ -3,11 +3,12 @@ xmas = ['X', 'M', 'A', 'S']
 def check_horizontal(matrix):
     horizontal_count = 0
     for my_list in matrix:
-        for i in range(len(my_list) - 4):
+        for i in range(len(my_list)):
             if my_list[i:i + 4] == xmas:
                 # print(my_list[i:i + 4])
                 horizontal_count += 1
-            elif my_list[i:i + 4] == xmas[::-1]:
+        for i in range(len(my_list)):
+            if my_list[i:i + 4] == xmas[::-1]:
                 # print(my_list[i:i + 4])
                 horizontal_count += 1
     return horizontal_count
@@ -40,19 +41,6 @@ def check_diagonals(matrix):
                     # print(matrix[i][j], matrix[i+1][j-1], matrix[i+2][j-2], matrix[i+3][j-3])
                     diagonal_count += 1
                 elif matrix[i+1][j+1] == 'M' and matrix[i+2][j+2] == 'A' and matrix[i+3][j+3] == 'S':
-                    # print(matrix[i][j], matrix[i+1][j+1], matrix[i+2][j+2], matrix[i+3][j+3])
-                    diagonal_count += 1
-            if matrix[i][j] == 'S':
-                if matrix[i-1][j-1] == 'A' and matrix[i-2][j-2] == 'M' and matrix[i-3][j-3] == 'X':
-                    # print(matrix[i][j], matrix[i-1][j-1], matrix[i-2][j-2], matrix[i-3][j-3])
-                    diagonal_count += 1
-                elif matrix[i-1][j+1] == 'A' and matrix[i-2][j+2] == 'M' and matrix[i-3][j+3] == 'X':
-                    # print(matrix[i][j], matrix[i-1][j+1], matrix[i-2][j+2], matrix[i-3][j+3])
-                    diagonal_count += 1
-                elif matrix[i+1][j-1] == 'A' and matrix[i+2][j-2] == 'M' and matrix[i+3][j-3] == 'X':
-                    # print(matrix[i][j], matrix[i+1][j-1], matrix[i+2][j-2], matrix[i+3][j-3])
-                    diagonal_count += 1
-                elif matrix[i+1][j+1] == 'A' and matrix[i+2][j+2] == 'M' and matrix[i+3][j+3] == 'X':
                     # print(matrix[i][j], matrix[i+1][j+1], matrix[i+2][j+2], matrix[i+3][j+3])
                     diagonal_count += 1
     return diagonal_count
